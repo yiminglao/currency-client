@@ -1,3 +1,3 @@
-const api = "https://frozen-hamlet-31420.herokuapp.com/";
+const api = "https://node-currency-server.herokuapp.com/";
 
 export default api;
