@@ -14,6 +14,7 @@ import {
 } from "@material-ui/core";
 import ArrowForwardIcon from "@material-ui/icons/ArrowForward";
 import SendIcon from "@material-ui/icons/Send";
+import api from "./config";
 
 const useStyles = makeStyles(theme => ({
   formControl: {
@@ -40,7 +41,7 @@ function App() {
   const [targetAmount, setTargetAmount] = useState(null);
 
   const getCurrencyList = () => {
-    fetch("http://127.0.0.1:8000", {
+    fetch(api, {
       method: "GET"
     })
       .then(res => res.json())
@@ -56,7 +57,7 @@ function App() {
         base_amount: baseAmount,
         target_currency: targetCurrency
       };
-      fetch("http://127.0.0.1:8000/getcurrency", {
+      fetch(`${api}/getcurrency`, {
         method: "POST",
         body: JSON.stringify(formBody),
         headers: {
